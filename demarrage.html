@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<link rel="manifest" href="manifest.json">
+<title>KALASA</title>
+<script src="auth.js"></script>
+<style>
+html,body{height:100%;margin:0}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;color:#fff;
+  font-family:system-ui,sans-serif;background:linear-gradient(160deg,#1d4ed8,#2563eb 60%,#38bdf8)}
+.logo{font-size:4.2rem;line-height:1;animation:p 1.2s ease-in-out infinite alternate}
+h1{margin:0;font-size:2.2rem;letter-spacing:.14em}
+p{margin:0;opacity:.9}
+.pt{width:34px;height:34px;border:4px solid #fff5;border-top-color:#fff;border-radius:50%;animation:r .9s linear infinite;margin-top:18px}
+@keyframes r{to{transform:rotate(360deg)}}@keyframes p{to{transform:scale(1.08)}}
+</style></head><body>
+<div class="logo">🎓</div><h1>KALASA</h1><p>Gestion scolaire</p><div class="pt"></div>
+<script>
+(()=>{
+  if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+  const aller=()=>location.replace(typeof KAUTH!=='undefined'&&KAUTH.user()?KAUTH.accueil():'login.html');
+  setTimeout(aller,3500);
+  document.body.onclick=aller;
+})();
+</script>
+</body></html>
